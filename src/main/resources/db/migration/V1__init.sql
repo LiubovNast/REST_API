@@ -7,13 +7,13 @@ CREATE TABLE cities
 CREATE TABLE streets
 (
     id   serial primary key,
-    name text not null
+    name text not null unique
 );
 
 CREATE TABLE numbers_of_houses
 (
     id     serial primary key,
-    number text not null
+    number text not null unique
 );
 
 CREATE TABLE addresses
