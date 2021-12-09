@@ -1,6 +1,8 @@
 package com.nastoiashcha.rest_api.controller;
 
 import com.nastoiashcha.rest_api.model.user.User;
+import com.nastoiashcha.rest_api.model.user.UserResponse;
+import com.nastoiashcha.rest_api.model.user.UserSaveRequest;
 import com.nastoiashcha.rest_api.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +19,12 @@ public class UserController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestBody User request) {
+    public UserResponse createUser(@RequestBody UserSaveRequest request) {
         return userService.create(request);
     }
 
     @GetMapping("/{id}")
-    public User user(@PathVariable long id) {
+    public UserResponse user(@PathVariable long id) {
         return userService.findUserById(id);
     }
 
@@ -34,7 +36,7 @@ public class UserController {
 
     @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public User updateUser(@PathVariable long id, @RequestBody User request) {
-        return userService.update(id, request);
+    public UserResponse updateUserName(@PathVariable long id, @RequestBody String name) {
+        return userService.update(id, name);
     }
 }

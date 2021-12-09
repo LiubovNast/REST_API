@@ -1,14 +1,16 @@
 package com.nastoiashcha.rest_api.service;
 
 import com.nastoiashcha.rest_api.model.user.User;
+import com.nastoiashcha.rest_api.model.user.UserResponse;
+import com.nastoiashcha.rest_api.model.user.UserSaveRequest;
 
 public interface UserService {
 
-    User create(User user);
+    UserResponse create(UserSaveRequest user);
 
-    User update(long id, User user);
+    UserResponse update(long id, String name);
 
     void delete(long id);
 
-    User findUserById(long id);
+    UserResponse findUserById(long id);
 }

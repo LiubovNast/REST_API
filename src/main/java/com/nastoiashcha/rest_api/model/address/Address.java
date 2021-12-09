@@ -27,7 +27,7 @@ public class Address {
     private Street street;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "houseNumber_id", nullable = false)
+    @JoinColumn(name = "house_number_id", nullable = false)
     private NumberOfHouse numberOfHouse;
 
     @OneToMany(mappedBy = "address")

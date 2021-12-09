@@ -21,7 +21,7 @@ CREATE TABLE addresses
     id             serial primary key,
     city_id        bigint references cities (id),
     street_id      bigint references streets (id),
-    houseNumber_id bigint references numbers_of_houses (id)
+    house_number_id bigint references numbers_of_houses (id)
 );
 
 CREATE TABLE users
@@ -29,6 +29,6 @@ CREATE TABLE users
     id          serial primary key,
     name        text not null,
     age         int  not null,
-    dateOfBirth date not null,
+    date_of_birth date not null,
     address_id  bigint references addresses (id)
 );

@@ -4,7 +4,7 @@ import com.nastoiashcha.rest_api.model.address.City;
 
 public interface CityService {
 
-    City create(City city);
+    City create(String name);
 
     void delete(long id);
 }

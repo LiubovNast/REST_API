@@ -15,8 +15,19 @@ public class StreetServiceImpl implements StreetService {
     }
 
     @Override
-    public Street create(Street street) {
-        return streetRepository.save(street);
+    public Street create(String name) {
+        return saveStreet(name);
+    }
+
+    private Street saveStreet(String name) {
+        if (streetRepository.existsByName(name)) {
+            return streetRepository.findByName(name);
+        } else {
+            var street = new Street();
+            street.setName(name);
+            streetRepository.save(street);
+            return street;
+        }
     }
 
     @Override

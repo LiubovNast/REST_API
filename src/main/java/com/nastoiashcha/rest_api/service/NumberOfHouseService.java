@@ -4,7 +4,7 @@ import com.nastoiashcha.rest_api.model.address.NumberOfHouse;
 
 public interface NumberOfHouseService {
 
-    NumberOfHouse create(NumberOfHouse number);
+    NumberOfHouse create(String number);
 
     void delete(long id);
 }

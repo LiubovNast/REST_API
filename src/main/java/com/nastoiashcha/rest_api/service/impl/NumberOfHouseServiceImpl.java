@@ -15,8 +15,19 @@ public class NumberOfHouseServiceImpl implements NumberOfHouseService {
     }
 
     @Override
-    public NumberOfHouse create(NumberOfHouse number) {
-        return numberOfHouseRepository.save(number);
+    public NumberOfHouse create(String number) {
+        return saveNumber(number);
+    }
+
+    private NumberOfHouse saveNumber(String number) {
+        if (numberOfHouseRepository.existsByNumber(number)) {
+            return numberOfHouseRepository.findByNumber(number);
+        } else {
+            var numberOfHouse = new NumberOfHouse();
+            numberOfHouse.setNumber(number);
+            numberOfHouseRepository.save(numberOfHouse);
+            return numberOfHouse;
+        }
     }
 
     @Override
